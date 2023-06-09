@@ -1,7 +1,7 @@
 extends Node
 
 # String field
-var token = ""
+var token: String = ""
 
 # Function to set the token
 func set_token(new_token: String) -> void:

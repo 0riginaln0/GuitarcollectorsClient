@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_logging_in_button_up() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scenes/AuthenticationWindow/authentication_window.tscn")
 
 
 func _on_continue_as_guest_button_up() -> void:

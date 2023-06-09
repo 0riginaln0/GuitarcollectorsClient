@@ -27,7 +27,7 @@ layout_mode = 2
 [node name="email" type="LineEdit" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_ljptm")
-text = "email"
+text = "gooddmitriy@mail.ru"
 expand_to_text_length = true
 caret_blink = true
 script = ExtResource("2_gw306")
@@ -35,11 +35,14 @@ script = ExtResource("2_gw306")
 [node name="password" type="LineEdit" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_ljptm")
-text = "password"
+text = "1234"
 caret_blink = true
 
 [node name="Log in" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Log in"
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="button_up" from="MarginContainer/VBoxContainer/Log in" to="." method="_on_log_in_button_up"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
