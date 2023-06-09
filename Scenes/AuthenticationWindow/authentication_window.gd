@@ -16,7 +16,7 @@ func _on_log_in_button_up() -> void:
 	$HTTPRequest.request(url, headers, HTTPClient.METHOD_POST, json)
 
 
-func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
+func _on_http_request_request_completed(_result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
 	if response_code != 200:
 		print("Вы что-то не так ввели, попробуйте ещё раз")
 		return
@@ -28,3 +28,4 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 	Jwt.set_token(str(parsed_data.token))
 	print(str(parsed_data.token))
 	# Переходим на сцену выбора категорий (Склад, Продажи, Расходы, Статьи расходов)
+	get_tree().change_scene_to_file("res://Scenes/CategoriesWindow/categories_window.tscn")
