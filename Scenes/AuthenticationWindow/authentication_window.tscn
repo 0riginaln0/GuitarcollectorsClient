@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd7othrp8skit"]
+
+[ext_resource type="Theme" uid="uid://c4thhsansla1v" path="res://Scenes/AuthenticationWindow/custom_theme.tres" id="1_ljptm"]
+[ext_resource type="Script" path="res://Scenes/AuthenticationWindow/authentication_window.gd" id="1_ywr4g"]
+[ext_resource type="Script" path="res://Scenes/AuthenticationWindow/email.gd" id="2_gw306"]
+
+[node name="AuthenticationWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ywr4g")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_left = 160.0
+offset_top = 168.0
+offset_right = 389.0
+offset_bottom = 285.0
+scale = Vector2(1.5, 1.5)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="email" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ljptm")
+text = "email"
+expand_to_text_length = true
+caret_blink = true
+script = ExtResource("2_gw306")
+
+[node name="password" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ljptm")
+text = "password"
+caret_blink = true
+
+[node name="Log in" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Log in"
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Log in" to="." method="_on_log_in_button_up"]
