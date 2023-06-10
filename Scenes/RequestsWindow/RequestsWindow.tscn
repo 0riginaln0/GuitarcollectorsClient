@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=3 uid="uid://cylbtountoy17"]
+
+[ext_resource type="Script" path="res://Scenes/RequestsWindow/RequestsWindow.gd" id="1_58wvx"]
+[ext_resource type="Script" path="res://Scenes/RequestsWindow/RequestPerformer.gd" id="2_li4n5"]
+
+[node name="RequestsWindow" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_58wvx")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 720.0
+theme_override_font_sizes/font_size = 56
+
+[node name="GET" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/GET"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 635.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/GET/ScrollContainer"]
+layout_mode = 2
+
+[node name="All expense items" type="Button" parent="TabContainer/GET/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "All expense items"
+
+[node name="Expense item by id" type="Button" parent="TabContainer/GET/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Expense item by id
+"
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/GET/ScrollContainer/VBoxContainer/Expense item by id"]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 10.0
+offset_right = 499.063
+offset_bottom = 41.0
+placeholder_text = "1234"
+
+[node name="Charges by expense item id" type="Button" parent="TabContainer/GET/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Charges by expense item id"
+
+[node name="POST" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="PUT" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="DELETE" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 640.0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_font_sizes/normal_font_size = 16
+text = "text"
+scroll_following = true
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1192.0
+offset_top = 584.0
+offset_right = 1237.0
+offset_bottom = 680.0
+theme_override_font_sizes/font_size = 64
+text = "<"
+
+[node name="RequestPerformer" type="Node" parent="."]
+script = ExtResource("2_li4n5")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="RequestPerformer"]
+
+[connection signal="button_up" from="TabContainer/GET/ScrollContainer/VBoxContainer/All expense items" to="." method="_on_all_expense_items_button_up"]
+[connection signal="button_up" from="TabContainer/GET/ScrollContainer/VBoxContainer/Expense item by id" to="." method="_on_expense_item_by_id_button_up"]
+[connection signal="button_up" from="Back" to="." method="_on_back_button_up"]
+[connection signal="response_ready" from="RequestPerformer" to="." method="_on_request_performer_response_ready"]
+[connection signal="request_completed" from="RequestPerformer/HTTPRequest" to="RequestPerformer" method="_on_http_request_request_completed"]

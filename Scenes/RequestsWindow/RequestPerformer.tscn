@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbt8fjrt4x517"]
+
+[ext_resource type="Script" path="res://Scenes/RequestsWindow/RequestPerformer.gd" id="1_85w8o"]
+
+[node name="Request" type="Node"]
+script = ExtResource("1_85w8o")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
