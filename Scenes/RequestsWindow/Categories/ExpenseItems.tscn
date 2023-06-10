@@ -19,7 +19,6 @@ offset_bottom = 720.0
 theme_override_font_sizes/font_size = 52
 
 [node name="GET" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/GET"]
@@ -121,6 +120,7 @@ theme_override_font_sizes/font_size = 32
 placeholder_text = "name:"
 
 [node name="DELETE" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/DELETE"]
