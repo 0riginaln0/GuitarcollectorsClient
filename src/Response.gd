@@ -4,8 +4,8 @@ extends Node
 var response: String = ""
 
 # Function to set the response
-func set_response(response1: String) -> void:
-	response = response1
+func set_response(_response: String) -> void:
+	response = _response
 
 # Function to get the response
 func get_response() -> String:

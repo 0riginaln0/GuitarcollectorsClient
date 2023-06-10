@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://dejcmoams245u"]
+
+[ext_resource type="Script" path="res://Scenes/RequestsWindow/ChooseCategory.gd" id="1_osbf8"]
+
+[node name="ChooseCategory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_osbf8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 176.0
+offset_right = 886.0
+offset_bottom = 572.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Warehouse" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Warehouse"
+
+[node name="Sales" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Sales"
+
+[node name="ExpenseItems" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Expense items"
+
+[node name="Charges" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Charges"
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "<"
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Warehouse" to="." method="_on_warehouse_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Sales" to="." method="_on_sales_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/ExpenseItems" to="." method="_on_expense_items_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Charges" to="." method="_on_charges_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_button_up"]

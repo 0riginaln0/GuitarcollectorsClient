@@ -7,7 +7,7 @@ func _on_logging_in_button_up() -> void:
 
 func _on_continue_as_guest_button_up() -> void:
 	# Переходим на сцену выбора категорий (Склад, Продажи, Расходы, Статьи расходов)
-	get_tree().change_scene_to_file("res://Scenes/RequestsWindow/RequestsWindow.tscn")
+	get_tree().change_scene_to_file("res://Scenes/RequestsWindow/ChooseCategory.tscn")
 
 
 func _on_quit_button_up() -> void:

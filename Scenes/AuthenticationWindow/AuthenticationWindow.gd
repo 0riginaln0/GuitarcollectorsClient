@@ -27,8 +27,8 @@ func _on_http_request_request_completed(_result: int, response_code: int, _heade
 	# Кладём полученный токен в память
 	Jwt.set_token(str(parsed_data.token))
 	print(str(parsed_data.token))
-	# Переходим на сцену отправки запросов (Склад, Продажи, Расходы, Статьи расходов)
-	get_tree().change_scene_to_file("res://Scenes/RequestsWindow/RequestsWindow.tscn")
+	# Переходим на сцену выбора категорий (Склад, Продажи, Расходы, Статьи расходов)
+	get_tree().change_scene_to_file("res://Scenes/RequestsWindow/ChooseCategory.tscn")
 
 
 func _on_back_button_up() -> void:

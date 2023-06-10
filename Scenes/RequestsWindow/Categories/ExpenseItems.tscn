@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cylbtountoy17"]
+[gd_scene load_steps=3 format=3 uid="uid://cbbvoqvcdnw2h"]
 
-[ext_resource type="Script" path="res://Scenes/RequestsWindow/RequestsWindow.gd" id="1_58wvx"]
-[ext_resource type="Script" path="res://Scenes/RequestsWindow/RequestPerformer.gd" id="2_li4n5"]
+[ext_resource type="Script" path="res://Scenes/RequestsWindow/Categories/ExpenseItems.gd" id="1_5epfy"]
+[ext_resource type="Script" path="res://Scenes/RequestsWindow/RequestPerformer.gd" id="2_g2fba"]
 
-[node name="RequestsWindow" type="Control"]
+[node name="ExpenseItems" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_58wvx")
+script = ExtResource("1_5epfy")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 0
@@ -40,22 +40,47 @@ theme_override_font_sizes/font_size = 32
 text = "Expense item by id
 "
 
-[node name="LineEdit" type="LineEdit" parent="TabContainer/GET/ScrollContainer/VBoxContainer/Expense item by id"]
-layout_mode = 0
-offset_left = 432.0
-offset_top = 10.0
-offset_right = 499.063
-offset_bottom = 41.0
-placeholder_text = "1234"
-
 [node name="Charges by expense item id" type="Button" parent="TabContainer/GET/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Charges by expense item id"
 
+[node name="IDInput" type="LineEdit" parent="TabContainer/GET"]
+layout_mode = 2
+offset_left = 512.0
+offset_top = 51.0
+offset_right = 640.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "id:"
+
 [node name="POST" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/POST"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 96.0
+offset_right = 504.0
+offset_bottom = 704.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/POST/ScrollContainer"]
+layout_mode = 2
+
+[node name="Add expense item" type="Button" parent="TabContainer/POST/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Expense item"
+
+[node name="Name" type="LineEdit" parent="TabContainer/POST"]
+layout_mode = 2
+offset_left = 392.0
+offset_top = 104.0
+offset_right = 520.0
+offset_bottom = 157.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "name:"
 
 [node name="PUT" type="TabBar" parent="TabContainer"]
 visible = false
@@ -84,12 +109,14 @@ theme_override_font_sizes/font_size = 64
 text = "<"
 
 [node name="RequestPerformer" type="Node" parent="."]
-script = ExtResource("2_li4n5")
+script = ExtResource("2_g2fba")
 
 [node name="HTTPRequest" type="HTTPRequest" parent="RequestPerformer"]
 
 [connection signal="button_up" from="TabContainer/GET/ScrollContainer/VBoxContainer/All expense items" to="." method="_on_all_expense_items_button_up"]
 [connection signal="button_up" from="TabContainer/GET/ScrollContainer/VBoxContainer/Expense item by id" to="." method="_on_expense_item_by_id_button_up"]
+[connection signal="button_up" from="TabContainer/GET/ScrollContainer/VBoxContainer/Charges by expense item id" to="." method="_on_charges_by_expense_item_id_button_up"]
+[connection signal="button_up" from="TabContainer/POST/ScrollContainer/VBoxContainer/Add expense item" to="." method="_on_add_expense_item_button_up"]
 [connection signal="button_up" from="Back" to="." method="_on_back_button_up"]
 [connection signal="response_ready" from="RequestPerformer" to="." method="_on_request_performer_response_ready"]
 [connection signal="request_completed" from="RequestPerformer/HTTPRequest" to="RequestPerformer" method="_on_http_request_request_completed"]
