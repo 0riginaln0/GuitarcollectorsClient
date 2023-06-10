@@ -19,6 +19,17 @@ func _on_add_expense_item_button_up() -> void:
 		"name": $TabContainer/POST/Name.text
 	}
 	$RequestPerformer.post_request(url, str(json))
+	
+func _on_update_expense_item_button_up() -> void:
+	var url = "http://localhost:8080/api/expense-items/" + $TabContainer/PUT/ID.text
+	var json = {
+		"name": $TabContainer/PUT/Name.text
+	}
+	$RequestPerformer.put_request(url, str(json))
+
+func _on_delete_expense_item_button_up() -> void:
+	var url = "http://localhost:8080/api/expense-items/" + $TabContainer/DELETE/ID.text
+	$RequestPerformer.delete_request(url)
 
 func _on_back_button_up() -> void:
 	get_tree().change_scene_to_file("res://Scenes/RequestsWindow/ChooseCategory.tscn")
