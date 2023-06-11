@@ -1,7 +1,7 @@
 extends Control
 
 func _on_warehouse_button_up() -> void:
-	#get_tree().change_scene_to_file("")
+	get_tree().change_scene_to_file("res://Scenes/RequestsWindow/Categories/Warehouse.tscn")
 	pass
 
 func _on_sales_button_up() -> void:
