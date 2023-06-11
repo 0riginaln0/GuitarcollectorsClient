@@ -9,9 +9,14 @@ func post_request(url: String, json: String):
 	var headers: PackedStringArray = ["Authorization: Bearer " + Jwt.get_token(), "Content-Type: application/json"]
 	$HTTPRequest.request(url, headers, HTTPClient.METHOD_POST, json)
 	
-func put_request(url: String, json: String):
-	var headers: PackedStringArray = ["Authorization: Bearer " + Jwt.get_token(), "Content-Type: application/json"]
-	$HTTPRequest.request(url, headers, HTTPClient.METHOD_PUT, json)
+func put_request(url: String, json: String = "no json") -> void:
+	if json != "no json":
+		var headers: PackedStringArray = ["Authorization: Bearer " + Jwt.get_token(), "Content-Type: application/json"]
+		$HTTPRequest.request(url, headers, HTTPClient.METHOD_PUT, json)
+	else:
+		var headers: PackedStringArray = ["Authorization: Bearer " + Jwt.get_token(), "Content-Length: 0"]
+		$HTTPRequest.request(url, headers, HTTPClient.METHOD_PUT, "")
+		
 
 func delete_request(url: String):
 	var headers: PackedStringArray = ["Authorization: Bearer " + Jwt.get_token()]

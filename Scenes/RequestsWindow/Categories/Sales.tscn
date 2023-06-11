@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://cdqonjlsoiiol"]
+[gd_scene load_steps=3 format=3 uid="uid://cvh4hqnyodxci"]
+
+[ext_resource type="Script" path="res://Scenes/RequestsWindow/Categories/Sales.gd" id="1_k3b6h"]
+[ext_resource type="PackedScene" uid="uid://dbt8fjrt4x517" path="res://Scenes/RequestsWindow/RequestPerformer.tscn" id="2_q3s0j"]
 
 [node name="Sales" type="Control"]
 layout_mode = 3
@@ -7,3 +10,235 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_k3b6h")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_right = 704.0
+offset_bottom = 720.0
+theme_override_font_sizes/font_size = 32
+
+[node name="GET" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/GET"]
+layout_mode = 0
+offset_right = 584.0
+offset_bottom = 667.0
+
+[node name="Sales" type="Button" parent="TabContainer/GET/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Sales"
+
+[node name="SalesById" type="Button" parent="TabContainer/GET/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Sales by id"
+
+[node name="SaleId" type="LineEdit" parent="TabContainer/GET"]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 3.0
+offset_right = 579.063
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "id:"
+expand_to_text_length = true
+
+[node name="POST" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/POST"]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 472.0
+offset_bottom = 720.0
+
+[node name="AddSale" type="Button" parent="TabContainer/POST/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Add sale"
+
+[node name="AddSalePercentageDiscount" type="Button" parent="TabContainer/POST/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Sell with persantage discount"
+
+[node name="AddSaleAbsoluteDiscount" type="Button" parent="TabContainer/POST/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Sell with absolute discount"
+
+[node name="Quantity" type="LineEdit" parent="TabContainer/POST"]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 56.0
+offset_right = 666.0
+offset_bottom = 109.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "quantity:"
+expand_to_text_length = true
+
+[node name="ProductId" type="LineEdit" parent="TabContainer/POST"]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 120.0
+offset_right = 695.0
+offset_bottom = 173.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "product id:"
+expand_to_text_length = true
+
+[node name="AbsoluteDiscount" type="LineEdit" parent="TabContainer/POST"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 264.0
+offset_right = 692.0
+offset_bottom = 317.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "absolute discount:"
+expand_to_text_length = true
+
+[node name="PercentageDiscount" type="LineEdit" parent="TabContainer/POST"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 320.0
+offset_right = 585.0
+offset_bottom = 373.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "% discount:"
+expand_to_text_length = true
+
+[node name="PUT" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/PUT"]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 576.0
+offset_bottom = 720.0
+
+[node name="UpdateSale" type="Button" parent="TabContainer/PUT/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Update sale"
+
+[node name="GivePersentageDiscount" type="Button" parent="TabContainer/PUT/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Give % discount"
+
+[node name="GiveAbsoluteDiscount" type="Button" parent="TabContainer/PUT/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Give absolute discount"
+
+[node name="SaleId" type="LineEdit" parent="TabContainer/PUT"]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 256.0
+offset_right = 555.063
+offset_bottom = 287.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "sale id:"
+expand_to_text_length = true
+
+[node name="Quantity" type="LineEdit" parent="TabContainer/PUT"]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 320.0
+offset_right = 616.0
+offset_bottom = 373.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "quanity:"
+expand_to_text_length = true
+
+[node name="ProductId" type="LineEdit" parent="TabContainer/PUT"]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 392.0
+offset_right = 695.0
+offset_bottom = 445.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "product id:"
+expand_to_text_length = true
+
+[node name="AbsoluteDiscount" type="LineEdit" parent="TabContainer/PUT"]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 456.0
+offset_right = 660.0
+offset_bottom = 509.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "absolute discount:"
+expand_to_text_length = true
+
+[node name="PercentageDiscount" type="LineEdit" parent="TabContainer/PUT"]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 520.0
+offset_right = 561.0
+offset_bottom = 573.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "% discount:"
+expand_to_text_length = true
+
+[node name="DELETE" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/DELETE"]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 576.0
+offset_bottom = 720.0
+
+[node name="DeleteSale" type="Button" parent="TabContainer/DELETE/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Delete sale"
+
+[node name="SaleId" type="LineEdit" parent="TabContainer/DELETE"]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 56.0
+offset_right = 595.063
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "id:"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 704.0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1208.0
+offset_top = 584.0
+offset_right = 1253.0
+offset_bottom = 680.0
+theme_override_font_sizes/font_size = 64
+text = "<"
+
+[node name="Request" parent="." instance=ExtResource("2_q3s0j")]
+
+[connection signal="button_up" from="TabContainer/GET/VBoxContainer/Sales" to="." method="_on_sales_button_up"]
+[connection signal="button_up" from="TabContainer/GET/VBoxContainer/SalesById" to="." method="_on_sales_by_id_button_up"]
+[connection signal="button_up" from="TabContainer/POST/VBoxContainer/AddSale" to="." method="_on_add_sale_button_up"]
+[connection signal="button_up" from="TabContainer/POST/VBoxContainer/AddSalePercentageDiscount" to="." method="_on_add_sale_percentage_discount_button_up"]
+[connection signal="button_up" from="TabContainer/POST/VBoxContainer/AddSaleAbsoluteDiscount" to="." method="_on_add_sale_absolute_discount_button_up"]
+[connection signal="button_up" from="TabContainer/PUT/VBoxContainer/UpdateSale" to="." method="_on_update_sale_button_up"]
+[connection signal="button_up" from="TabContainer/PUT/VBoxContainer/GivePersentageDiscount" to="." method="_on_give_persentage_discount_button_up"]
+[connection signal="button_up" from="TabContainer/PUT/VBoxContainer/GiveAbsoluteDiscount" to="." method="_on_give_absolute_discount_button_up"]
+[connection signal="button_up" from="TabContainer/DELETE/VBoxContainer/DeleteSale" to="." method="_on_delete_sale_button_up"]
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="response_ready" from="Request" to="." method="_on_request_response_ready"]
