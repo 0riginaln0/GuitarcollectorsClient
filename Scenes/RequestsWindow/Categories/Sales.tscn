@@ -115,7 +115,6 @@ placeholder_text = "% discount:"
 expand_to_text_length = true
 
 [node name="PUT" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 
@@ -190,7 +189,18 @@ theme_override_font_sizes/font_size = 32
 placeholder_text = "% discount:"
 expand_to_text_length = true
 
+[node name="Amount" type="LineEdit" parent="TabContainer/PUT"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 320.0
+offset_right = 434.0
+offset_bottom = 373.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "amount:"
+expand_to_text_length = true
+
 [node name="DELETE" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 

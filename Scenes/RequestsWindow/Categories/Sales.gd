@@ -46,14 +46,19 @@ func _on_add_sale_absolute_discount_button_up() -> void:
 
 func _on_update_sale_button_up() -> void:
 	var url = ("http://localhost:8080/api/sales/" + $TabContainer/PUT/SaleId.text)
-	var json = {
-		"quantity": $TabContainer/PUT/Quantity.text,
-		"warehouse": {
-			"id": $TabContainer/PUT/ProductId.text
+	var amount: String = $TabContainer/PUT/Amount.text
+	var quantity: String = $TabContainer/PUT/Quantity.text
+	var warehouse_id: String = $TabContainer/PUT/ProductId.text
+	var json: Dictionary = {}
+	if (!amount.is_empty()):
+		json.amount = amount
+	if (!quantity.is_empty()):
+		json.quantity = quantity
+	if (!warehouse_id.is_empty()):
+		json.warehouse = {
+			"id": warehouse_id
 		}
-	}
 	$Request.put_request(url, str(json))
-
 
 func _on_give_persentage_discount_button_up() -> void:
 	var url = ("http://localhost:8080/api/sales/" + $TabContainer/PUT/SaleId.text + "/percentage-discount/" + $TabContainer/PUT/PercentageDiscount.text)
