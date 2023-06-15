@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dshac3vihwpl1"]
+[gd_scene load_steps=3 format=3 uid="uid://dshac3vihwpl1"]
 
 [ext_resource type="Script" path="res://Scenes/StartWindow/StartWindow.gd" id="1_on17j"]
+[ext_resource type="PackedScene" uid="uid://bbg7ekkyl0jg8" path="res://src/texture_rect.tscn" id="2_80iuq"]
 
 [node name="StartWindow" type="Control"]
 layout_mode = 3
@@ -10,6 +11,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_on17j")
+
+[node name="TextureRect" parent="." instance=ExtResource("2_80iuq")]
+layout_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0

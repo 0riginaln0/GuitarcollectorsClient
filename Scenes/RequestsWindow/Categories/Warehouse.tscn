@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwbdyededoeqs"]
+[gd_scene load_steps=4 format=3 uid="uid://dwbdyededoeqs"]
 
 [ext_resource type="PackedScene" uid="uid://dbt8fjrt4x517" path="res://Scenes/RequestsWindow/RequestPerformer.tscn" id="1_4a2ix"]
 [ext_resource type="Script" path="res://Scenes/RequestsWindow/Categories/Warehouse.gd" id="1_sne6t"]
+[ext_resource type="PackedScene" uid="uid://bbg7ekkyl0jg8" path="res://src/texture_rect.tscn" id="2_8vdql"]
 
 [node name="Warehouse" type="Control"]
 layout_mode = 3
@@ -11,6 +12,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sne6t")
+
+[node name="TextureRect" parent="." instance=ExtResource("2_8vdql")]
+layout_mode = 0
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 0
@@ -263,6 +267,10 @@ layout_mode = 0
 offset_left = 704.0
 offset_right = 1280.0
 offset_bottom = 720.0
+focus_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 0.0784314)
+selection_enabled = true
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 0

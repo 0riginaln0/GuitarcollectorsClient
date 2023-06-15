@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvh4hqnyodxci"]
+[gd_scene load_steps=4 format=3 uid="uid://cvh4hqnyodxci"]
 
 [ext_resource type="Script" path="res://Scenes/RequestsWindow/Categories/Sales.gd" id="1_k3b6h"]
 [ext_resource type="PackedScene" uid="uid://dbt8fjrt4x517" path="res://Scenes/RequestsWindow/RequestPerformer.tscn" id="2_q3s0j"]
+[ext_resource type="PackedScene" uid="uid://bbg7ekkyl0jg8" path="res://src/texture_rect.tscn" id="2_ug2x1"]
 
 [node name="Sales" type="Control"]
 layout_mode = 3
@@ -12,6 +13,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k3b6h")
 
+[node name="TextureRect" parent="." instance=ExtResource("2_ug2x1")]
+layout_mode = 0
+
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 0
 offset_right = 704.0
@@ -19,7 +23,6 @@ offset_bottom = 720.0
 theme_override_font_sizes/font_size = 32
 
 [node name="GET" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 
@@ -115,6 +118,7 @@ placeholder_text = "% discount:"
 expand_to_text_length = true
 
 [node name="PUT" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 
@@ -229,6 +233,10 @@ layout_mode = 0
 offset_left = 704.0
 offset_right = 1280.0
 offset_bottom = 720.0
+focus_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 0.0784314)
+selection_enabled = true
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
