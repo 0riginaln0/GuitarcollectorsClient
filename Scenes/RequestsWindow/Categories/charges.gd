@@ -23,12 +23,15 @@ func _on_add_charge_button_up() -> void:
 
 func _on_update_charge_button_up() -> void:
 	var url = "http://localhost:8080/api/charges/" + $TabContainer/PUT/ChargeId.text
-	var json = {
-		"amount": $TabContainer/PUT/Amount.text,
-		"expenseItem": {
-			"id": $TabContainer/PUT/ExpenseItemId.text
+	var amount: String = $TabContainer/PUT/Amount.text
+	var expense_item_id: String = $TabContainer/PUT/ExpenseItemId.text
+	var json = {}
+	if (!amount.is_empty()):
+		json.amount = amount
+	if (!expense_item_id.is_empty()):
+		json.expenseItem = {
+			"id": expense_item_id
 		}
-	}
 	$Request.put_request(url, str(json))
 
 

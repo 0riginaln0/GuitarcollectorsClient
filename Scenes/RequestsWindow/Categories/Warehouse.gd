@@ -60,11 +60,16 @@ func _on_add_repurchased_product_button_up() -> void:
 
 func _on_update_product_button_up() -> void:
 	var url = ("http://localhost:8080/api/warehouse/" + $"TabContainer/PUT/Product id".text)
-	var json = {
-		"name": $TabContainer/PUT/Name.text,
-		"quantity": $TabContainer/PUT/Quantity.text,
-		"amount": $TabContainer/PUT/Amount.text
-	}
+	var name: String = $TabContainer/PUT/Name.text
+	var quantity: String = $TabContainer/PUT/Quantity.text
+	var amount: String = $TabContainer/PUT/Amount.text
+	var json: Dictionary = {}
+	if (!name.is_empty()):
+		json.name = name
+	if (!quantity.is_empty()):
+		json.quantity = quantity
+	if (!amount.is_empty()):
+		json.amount = amount
 	$Request.put_request(url, str(json))
 
 func _on_delete_product_button_up() -> void:
